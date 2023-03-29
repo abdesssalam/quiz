@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<h:outputStylesheet library="css" name="main.css" />
+<h:outputStylesheet library="css" name="all.css" />
+
+</h:head> 
+<h:body> 
+ <h:form id="registerForm">
+	<div class="bg-grey-lighter min-h-screen flex flex-col">
+        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+            <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                <h1 class="mb-8 text-3xl text-center">S'inscrire</h1>
+                <label class="relative inline-flex items-center cursor-pointer mb-4 ">
+
+	
+                    <h:selectBooleanCheckbox  type="checkbox" value="#{userBean.poseur}" class="sr-only peer"  checked="checked" />
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300   peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600">
+                    </div>
+                    <span class="ml-3 text-sm font-medium text-gray-900 ">vous êtes poseur?</span>
+                </label>
+                
+                <div class="mb-6">
+		    		<label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom :</label>
+		    		<h:inputText value="#{userBean.user.nom}"  
+		    		class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none" />
+				</div>
+				 <div class="mb-6">
+		    		<label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prenom :</label>
+		    		<h:inputText value="#{userBean.user.prenom}"  
+		    		class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none" />
+				</div>
+				 <div class="mb-6">
+		    		<label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email :</label>
+		    		<h:inputText value="#{userBean.user.login}"  
+		    		class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none" />
+				</div>
+				 <div class="mb-6">
+		    		<label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de pass :</label>
+		    		<h:inputSecret value="#{userBean.user.password}"  
+		    		class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none" />
+				</div>
+                
+                
+                
+                
+
+                <h:commandButton   value="Créez votre compte" action="#{userBean.inscrire()}"
+                    class="w-full text-center py-3 rounded bg-green-400 text-white hover:bg-green-500 focus:outline-none my-1" />
+
+
+            </div>
+
+            <div class="text-gray-800 mt-6">
+                Vous avez déjà un compte?
+                <a class="no-underline border-b border-blue-600 text-blue-600" href="login.jsf">
+                    Log in
+                </a>.
+            </div>
+        </div>
+    </div>
+     </h:form>
+</h:body> 
+</html>

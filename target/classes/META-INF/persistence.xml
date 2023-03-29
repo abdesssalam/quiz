@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="queez" transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>java:/MySqlDS</non-jta-data-source>
+		
+		<class>queez.dao.User</class>
+		<class>queez.dao.Reponse</class>
+		<class>queez.dao.Quiz</class>
+		<class>queez.dao.Question</class>
+		<class>queez.dao.Apprenant</class>
+		<class>queez.dao.Poseur</class>
+		<class>queez.dao.Book</class>
+		<properties>
+												
+												<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+												<property name="hibernate.show_sql" value="false" />
+												<property name="hibernate.format_sql" value="false" />
+												<property name="hibernate.connection.characterEncoding" value="UTF-8" />
+												<property name="hibernate.connection.charSet" value="UTF-8" />
+												<property name="hibernate.connection.useUnicode" value="true" />
+								</properties>
+		
+	</persistence-unit>
+</persistence>
