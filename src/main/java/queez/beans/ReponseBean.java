@@ -100,20 +100,16 @@ public class ReponseBean {
 	@Inject
 	@PostConstruct
 	public void init() {
-//		FaceletContext faceletContext = (FaceletContext) FacesContext.getCurrentInstance().getAttributes().get(FaceletContext.FACELET_CONTEXT_KEY);
-//		Object p1 = faceletContext.getAttribute("id");
-		//get questions
-		
-		System.out.println("\n\n\n init reponses :=> id: "+id+"\n\n");
 		this.listReponses=questionService.getReponses(id);
-		System.out.println("\n\n\n\n size =: "+listReponses.size()+"\n\n\n\n");
 		
 	}
 
 	
-	public void save() {
+	public String save() {
 		this.question=questionService.find(QuesID);
 		reponse.setQuestion(question);	
 		reponseService.ajouter(reponse);
+		
+		return "reponses.xhtml?id="+QuesID+"&faces-redirect=true";
 	}
 }
