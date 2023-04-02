@@ -1,37 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"> 
 
- <h:head>
- 
- <title>test</title>
+<h:head>
 <h:outputStylesheet library="css" name="main.css" />
 <h:outputStylesheet library="css" name="all.css" />
 
- 
- </h:head> 
-
-<h:body>
+</h:head> 
+<body> 
 	<div
         class="flex container mx-auto bg-gray-100 flex-col h-auto items-center justify-center md:flex-row md:justify-between md:rounded-md shadow-md">
         <div class="w-1/3 flex flex-col items-center gap-1 h-auto my-2">
             <i class="fas fa-user text-gray-400 text-3xl"></i>
-            
             <h1 class="font-bold text-lg text-gray-500">Abdeslam Ait Omar</h1>
         </div>
         <div class="my-2 md:my-auto md:mx-2 flex flex-col h-auto items-center">
-            <a href="#"
-                class="p-1.5 text-lg bg-green-500 hover:bg-green-700 rounded-sm capitalize font-semibold text-white">ajouter</a>
-            <a href="#" class="hidden bg-green-400 hover:bg-green-600 rounded-sm text-white my-1 p-1">Quiz</a>
-            <a href="#" class="hidden bg-green-400 hover:bg-green-600 rounded-sm text-white my-1 p-1">Question</a>
-            <h1
-                class="hidden rounded-full border border-gray-500 w-8 h-8 flex flex-col justify-center items-center font-semibold  text-lg cursor-pointer hover:bg-gray-200 hover:text-gray-500 hover:border-white">
-                X</h1>
+
+            <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots"
+                class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none  focus:ring-gray-50  "
+                type="button">
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownDots" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+                    <li>
+                        <a href="addQuiz.xhtml" class="block px-4 py-2 hover:bg-gray-100 ">Nouveau Quiz</a>
+                    </li>
+                    <li>
+                        <a href="/addQuestion.html" class="block px-4 py-2 hover:bg-gray-100 ">Nouveau Question</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Table de board</a>
+                    </li>
+                </ul>
+                <div class="py-2">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  ">déconncter</a>
+                </div>
+            </div>
+
+
+
+
         </div>
     </div>
-
-	<h:outputScript library="js" name="main.js" />
-</h:body>
+    <!-- end header -->
+    <h:outputScript library="js" name="main.js" />
+    <h:outputScript library="js" name="flowbite.min.js" />
+</body> 
 </html>

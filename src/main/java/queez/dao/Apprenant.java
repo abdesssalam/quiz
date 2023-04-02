@@ -1,27 +1,32 @@
 package queez.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
+
 
 @Entity
-//@Table(name="apprenant")
 @DiscriminatorValue("apprenant")
 public class Apprenant extends User  implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-//	@Id
-////    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column( updatable = false, nullable = false)
-//	int id;
+	
+	
+	@OneToMany(mappedBy = "apprenant")
+	List<Participation> participations;
 
+
+	public List<Participation> getParticipations() {
+		return participations;
+	}
+
+
+	public void setParticipations(List<Participation> participations) {
+		this.participations = participations;
+	}
+	
+	
 }

@@ -1,0 +1,41 @@
+@charset "ISO-8859-1";
+
+
+/*
+<ul class="w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg px-2 ">
+                <li class="w-full border-b border-gray-200 rounded-t-lg ">
+                    <div class="flex items-center pl-3">
+                        <label for="vue-checkbox" class="w-full py-3 ml-2 text-sm font-medium text-gray-900">Vue
+                            JS</label>
+                        <h:selectBooleanCheckbox   type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500   focus:ring-2"/>
+                    	
+                    </div>
+                </li>
+
+            </ul>
+*/
+.table-reponses, .table-reponses tbody{
+	width: 100%;
+    
+}
+.table-reponses tbody tr {
+	display: flex;
+	flex-direction: column;
+	width: 100%
+	
+	
+}
+
+.table-reponses tbody tr td{
+	width: 100;
+	border-bottom: 1px solid rgb(229,231,235);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.text-center{
+	text-align: center;
+}

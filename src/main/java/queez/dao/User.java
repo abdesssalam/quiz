@@ -24,9 +24,7 @@ import javax.persistence.Transient;
 @DiscriminatorColumn(name ="user_type")
 public class User  implements Serializable{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -83,6 +81,15 @@ public class User  implements Serializable{
 	public User() {
 		
 	}
+	public User(int id, String nom, String prenom, String login, String password) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.login = login;
+		this.password = password;
+	}
+	
 	
 	
 	

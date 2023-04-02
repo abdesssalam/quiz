@@ -9,7 +9,8 @@
 		<class>queez.dao.Question</class>
 		<class>queez.dao.Apprenant</class>
 		<class>queez.dao.Poseur</class>
-		<class>queez.dao.Book</class>
+		<class>queez.dao.Participation</class>
+		<class>queez.dao.ParticipationPK</class>
 		<properties>
 												
 												<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />

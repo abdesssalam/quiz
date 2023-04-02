@@ -46,4 +46,23 @@ function fadeIn() {
 
 }
 
+//handle add new element
 
+
+var btnAddChks=document.getElementById("btnTestAdd");
+
+function addNewOption(){
+	console.log("clicked");
+}
+btnAddChks.addEventListener("click",(e)=>{
+	e.preventDefault();
+	console.log("clicked")
+	
+	var checkboxParent=document.getElementById("checkbox");
+	var newItem=document.createElement("f:selectItem");
+	newItem.setAttribute("itemLabel", "Option 3");
+    newItem.setAttribute("itemValue", "3");
+    checkboxParent.appendChild(newItem);
+    
+	
+})

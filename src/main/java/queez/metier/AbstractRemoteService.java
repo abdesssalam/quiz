@@ -7,7 +7,9 @@ import javax.ejb.Remote;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 @Local
 public abstract class AbstractRemoteService<T> {
@@ -44,5 +46,7 @@ public abstract class AbstractRemoteService<T> {
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
     }
+    
+    
 
 }

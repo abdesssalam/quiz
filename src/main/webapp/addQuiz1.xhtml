@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      > 
+	
+<h:head>
+
+<title>test</title>
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputStylesheet library="css" name="all.css" />
+</h:head> 
+<body> 
+
+<div
+        class="flex container mx-auto bg-gray-100 flex-col h-auto items-center justify-center md:flex-row md:justify-between md:rounded-md shadow-md">
+        <div class="w-1/3 flex flex-col items-center gap-1 h-auto my-2">
+            <i class="fas fa-user text-gray-400 text-3xl"></i>
+            <h1 class="font-bold text-lg text-gray-500">Abdeslam Ait Omar</h1>
+        </div>
+        <div class="my-2 md:my-auto md:mx-2 flex flex-col h-auto items-center">
+
+            <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots"
+                class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none  focus:ring-gray-50  "
+                type="button">
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                    </path>
+                </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="dropdownDots" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+                    <li>
+                        <a href="addQuiz1.xhtml" class="block px-4 py-2 hover:bg-gray-100 ">Nouveau Quiz</a>
+                    </li>
+                    <li>
+                        <a href="/addQuestion.html" class="block px-4 py-2 hover:bg-gray-100 ">Nouveau Question</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 ">Table de board</a>
+                    </li>
+                </ul>
+                <div class="py-2">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  ">déconncter</a>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <!-- end header -->
+	
+	<center><h1><h:outputText value="Gestion des quiz"/></h1></center>
+<div style="width: 60%; position: relative; left: 25%" >
+  <h:form id="ajouterQuiz" >
+  
+  <p:fieldset> <f:facet name="legend">Ajouter Quiz</f:facet>
+    <h:panelGrid columns="3" cellpadding="10" style="margin: 0 auto; " styleClass="w-2/3">
+        <p:outputLabel for="theme" value="theme :" />
+        <p:inputText styleClass="w-full" id="theme" rendered ="true" value="#{quizBean.quiz.theme}" placeholder="Entrez theme géneral de quiz " dir="ltr"  />
+        <p:message for="theme" />
+        <p:outputLabel for="note" value="Note :" />
+        <p:inputNumber styleClass="w-full" id="note" value="#{quizBean.quiz.note}" placeholder="Entrez Note"/>
+        <p:message for="note" />
+ 
+ 	<!--  
+        <p:outputLabel for="prenom" value="Prenom" />
+        <p:inputText id="prenom" value="#{etudiantBean.etudiant.prenom}" placeholder="Entrez prenom"/>
+        <p:message for="prenom" />
+ 
+         <p:outputLabel for="cne" value="CNE" />
+         <p:inputText id="cne" value="#{etudiantBean.etudiant.cne}" placeholder="Entrez cne"/>
+         <p:message for="cne" />
+         
+         <p:outputLabel value="Filiere" />
+         <h:selectOneMenu converter="javax.faces.Integer" value="#{etudiantBean.etudiant.filiere.id}">
+           <f:selectItems value="#{filiereBean.filieres}"  var="f"  
+             itemValue="#{f.id}"  itemLabel="#{f.code}"/>
+         </h:selectOneMenu> -->
+        <p:commandButton value="ajouter" action="#{quizBean.Save()}"/>
+    </h:panelGrid>
+    </p:fieldset>
+  
+ </h:form>
+  </div>
+
+<br />
+
+<h:outputScript library="js" name="main.js" />
+    <h:outputScript library="js" name="flowbite.min.js" />
+</body> 
+</html>
