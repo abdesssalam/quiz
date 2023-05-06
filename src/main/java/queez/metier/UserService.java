@@ -22,8 +22,10 @@ import javax.transaction.Transactional;
 
 import com.password4j.Password;
 
+import queez.dao.Apprenant;
 import queez.dao.Poseur;
 import queez.dao.Question;
+import queez.dao.Quiz;
 import queez.dao.User;
 import queez.helper.CustomHelper;
 
@@ -46,13 +48,8 @@ public class UserService  extends AbstractRemoteService<User> {
 	}
 	
 	
-	public List<Question> getPoseurQuestion(int id){
-	    	CriteriaBuilder cb=getEntityManager().getCriteriaBuilder();
-	    	CriteriaQuery cq = cb.createQuery();
-	    	Root<Question> root=cq.from(Question.class);
-	    	cq.select(root).where(cb.equal(root.get("poseur"), id));
-	        return getEntityManager().createQuery(cq).getResultList();
-	}
+	
+	
 	
 	public User login(String email,String pass) {
 		Query q;
@@ -72,6 +69,11 @@ public class UserService  extends AbstractRemoteService<User> {
 			return null;
 		}
 		
+		
+	}
+	
+	public Apprenant getApprenet(int id) {
+		return em.find(Apprenant.class, id);
 	}
 	
 }

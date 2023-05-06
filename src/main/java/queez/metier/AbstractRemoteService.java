@@ -30,11 +30,15 @@ public abstract class AbstractRemoteService<T> {
     }
 
     public void modifier(T entity) {
+    	getEntityManager().getTransaction().begin();
         getEntityManager().merge(entity);
+        getEntityManager().getTransaction().commit();
     }
 
     public void supprimer(T entity) {
+    	getEntityManager().getTransaction().begin();
         getEntityManager().remove(getEntityManager().merge(entity));
+        getEntityManager().getTransaction().commit();
     }
 
     public T find(Object id) {

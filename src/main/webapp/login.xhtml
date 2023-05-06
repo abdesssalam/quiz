@@ -14,7 +14,7 @@
 	<div class="bg-grey-lighter min-h-screen flex flex-col">
         <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
             <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                <h1 class="mb-8 text-3xl text-center">Connexion</h1>
+                <h1 class="mb-8 text-3xl text-center">Connection</h1>
 				 <div class="mb-6">
 		    		<label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email :</label>
 		    		<h:inputText value="#{userBean.user.login}"  
@@ -30,16 +30,16 @@
                 
                 
 
-                <h:commandButton   value="Créez votre compte" action="#{userBean.login()}"
+                <h:commandButton   value="Connecter votre compte" action="#{userBean.login()}"
                     class="w-full text-center py-3 rounded bg-green-400 text-white hover:bg-green-500 focus:outline-none my-1" />
 
 
             </div>
 
             <div class="text-gray-800 mt-6">
-                Vous avez déjà un compte?
-                <a class="no-underline border-b border-blue-600 text-blue-600" href="login.jsf">
-                    Log in
+                Vous n'avez pas un compte?
+                <a class="no-underline border-b border-blue-600 text-blue-600" href="inscrire.jsf">
+                    Inscrire
                 </a>.
             </div>
         </div>

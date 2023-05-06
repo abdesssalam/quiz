@@ -94,9 +94,21 @@ public class UserBean  {
 			HttpSession session=(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 			session.setAttribute("user", FoundUser);
 			//depend on type of user
-			return "index.xhtml?faces-redirect=true";
+			if(FoundUser.getUserType().equals("poseur")) {
+				return "quiz.xhtml?faces-redirect=true";
+			}else {
+				return "choix.xhtml?faces-redirect=true";
+			}
+			
 		}
 		
+	}
+	
+	public String Deconnecter() {
+		this.user=null;
+		HttpSession session=(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		session.removeAttribute("user");
+		return "login.jsf?faces-redirect=true";
 	}
 	
 	

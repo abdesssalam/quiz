@@ -2,15 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      
+      > 
 
 <h:head>
-<title>test</title>
 <h:outputStylesheet library="css" name="main.css" />
 <h:outputStylesheet library="css" name="all.css" />
-<h:outputStylesheet library="css" name="custom.css" />
+
 </h:head> 
 <body> 
+
 	<div
         class="flex container mx-auto bg-gray-100 flex-col h-auto items-center justify-center md:flex-row md:justify-between md:rounded-md shadow-md">
         <div class="w-1/3 flex flex-col items-center gap-1 h-auto my-2">
@@ -34,63 +36,54 @@
            
         </div>
     </div>
-    <!-- form to add new quiz -->
-    <div  class="container mx-auto my-5 flex flex-col gap-2 content-center">
-    <h:form action="" method="post">
+    
+    <!-- end header -->
+    <!-- form to add quiz -->
+   <h:form action="" method="post" class="container mx-auto my-5 flex flex-col gap-2">
 
 
 
         <div class="mb-6 w-2/3 mx-auto">
 
-            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">énoncer</label>
-            <h:inputTextarea   rows="4" value="#{questionBean.question.enonce}"
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">theme général de Quiz</label>
+            <h:inputTextarea   rows="4" value="#{quizBean.quiz.theme}"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 focus:outline-none "/>
 
         </div>
         <div class="mb-6 w-2/3 mx-auto">
             <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 ">
                 Note</label>
-            <h:inputText  value="#{questionBean.question.note}"
+            <h:inputText value="#{quizBean.quiz.note}"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 focus:outline-none " />
         </div>
-        <div class="mb-6 w-1/5  mx-auto cursor-pointer" style="width:15%;">
-	        <div class="w-full h-full  cursor-pointer bg-green-100 hover:bg-green-200 text-green-600 font-bold py-2 px-4 rounded inline-flex items-center">
-		        <h:commandButton   action="#{questionBean.save()}" value="ajouter" styleClass="w-full h-full inline-flex items-center text-center" >
-		        	
-		
-		        </h:commandButton>
-	        </div>
+        <div class="mb-6 w-2/3 mx-auto">
+        	<h:commandButton styleClass="bg-green-500 hover:bg-green-600 text-white px-4 py-2 cursor-pointer" action="#{quizBean.Save()}" value="ajouter" />
         </div>
-       </h:form>
-      </div>
-        
-        <!-- liste des questions -->
+        </h:form>
+     <!-- liste des quizes -->
        <div class="container mx-auto">
        
-        <h1 class="text-center text-gray-700 font-extrabold text-lg mb-4">Liste des questions</h1>
-         <ui:repeat var="item" value="#{questionBean.questions}">
-       	<h:link outcome="reponses">
-       	<f:param name="id" value="#{item.id}" />
+        <h1 class="text-center text-gray-700 font-extrabold text-lg mb-4">Liste des quizes</h1>
+         <ui:repeat var="item" value="#{quizBean.poseurQuiz}">
+       	<h:link outcome="affecter">
+       	<f:param name="quizID" value="#{item.id}" />
         <!-- single question -->
         <div
             class="bg-green-500 mb-4 w-10/12 mx-auto min-h-[60px] rounded-lg shadow-md p-2.5 flex flex-col items-center    hover:bg-green-600">
 
-            <p class="text-md font-medium text-white mb-3"><h:outputText value="#{item.enonce}" />
+            <p class="text-md font-medium text-white mb-3"><h:outputText value="#{item.theme}" />
             </p>
             <hr class="w-full"/>
-            <p class="text-white font-medium">Note : <span class="font-light "><h:outputText value="#{item.note}" /></span></p>
+            <p class="text-white font-medium">By : 
+            	<span class="font-light "> <h:outputText value="#{item.poseur.nom}" /> <h:outputText value="#{item.poseur.prenom}" />  </span>
+            </p>
         </div>
        	</h:link>
   
         <!-- fin single question -->
         </ui:repeat>
   	  </div>
-       
-      
-        
-        
-       
-   
+    
     
     <h:outputScript library="js" name="main.js" />
     <h:outputScript library="js" name="flowbite.min.js" />

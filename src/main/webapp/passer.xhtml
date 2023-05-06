@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<h:outputStylesheet library="css" name="main.css" />
+<h:outputStylesheet library="css" name="all.css" />
+<h:outputStylesheet library="css" name="custom.css" />
+<f:metadata>
+	<f:viewParam name="quizID" value="#{participationBean.quizID}"></f:viewParam>
+	
+	</f:metadata>
+</h:head> 
+<body> 
+	
+	<div class="container mx-auto">
+	<h:form>
+		<div class="text-center p-2.5 border rounded-lg bg-green-500 text-white cursor-pointer hover:bg-green-600 ">
+			<p><h1 class="font-bold">Theme de quiz : <h:outputText styleClass="font-medium" value="#{participationBean.quiz.theme}" /></h1></p>
+			<p>votre score : <h:outputText value="#{participationBean.score}" /></p>
+		</div>
+		<div class="p-2.5 border rounded-lg bg-green-500 text-white cursor-pointer hover:bg-green-600 my-2">
+			<p class="text-center text-lg"> Question : <h:outputText value="#{participationBean.currentIndex+1}" /> </p>
+			<p class="text-2xl"> <h:outputText value="#{participationBean.currentQuestion.enonce}" /></p>
+		</div>
+		
+		<h:selectOneRadio  value="#{participationBean.checkedReponse}"  id="tableReponses" styleClass="tbReponse">
+			<f:selectItems  value="#{participationBean.currentReponses}" var="repons" itemLabel="#{repons.enocne}" itemValue="#{repons.id}" />
+		</h:selectOneRadio>
+		<h:commandButton styleClass="text-lg mx-auto block  bg-blue-600 py-1 px-3 rounded-lg cursor-pointer text-white hover:bg-blue-700" action="#{participationBean.checkReponse()}" value="valider" />
+	</h:form>
+	</div>
+	
+<h:outputScript library="js" name="pass.js" />
+</body> 
+</html>

@@ -3,8 +3,12 @@ package queez.dao;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
@@ -16,18 +20,18 @@ import javax.persistence.Table;
 public class Participation implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@EmbeddedId
-	ParticipationPK id;
+	@Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column( updatable = false, nullable = false)
+	int id;
 	
 	
 
 	@ManyToOne
-	@MapsId("apprenant_ID")
 	@JoinColumn(name="apprenant",referencedColumnName = "id")
 	Apprenant apprenant;
 
 	@ManyToOne
-	@MapsId("quiz_ID") //name of column in PK class
 	@JoinColumn(name="quiz",referencedColumnName = "id")
 	Quiz quiz;
 	
@@ -35,11 +39,13 @@ public class Participation implements Serializable {
 	
 	Date date;
 
-	public ParticipationPK getId() {
+	
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(ParticipationPK id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

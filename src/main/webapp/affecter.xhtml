@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      
+      > 
+
+<h:head>
+
+<f:metadata>
+	<f:viewParam name="quizID" value="#{questionBean.quizID}"></f:viewParam>
+	</f:metadata>
+
+<h:outputStylesheet library="css" name="main.css" />
+<h:outputStylesheet library="css" name="all.css" />
+
+</h:head> 
+<body> 
+
+	
+	  <!-- liste des questions -->
+       <div class="container mx-auto">
+       
+        <h1 class="text-center text-gray-700 font-extrabold text-lg mb-4">Liste des autres questions</h1>
+        <c:forEach var="item" items="#{questionBean.excluded}">
+        
+        	<div class="flex mb-4 justify-center items-center  min-h-[60px] ">
+       	
+	       	<h:link outcome="reponses" styleClass="basis-2/3">
+	       	<f:param name="id" value="#{item.id}" />
+		        <!-- single question -->
+		        <div
+		            class="bg-green-500  mx-auto rounded-lg shadow-md p-2.5 flex flex-col items-center    hover:bg-green-600">
+		
+		            <p class="text-md font-medium text-white mb-3"><h:outputText value="#{item.enonce}" />
+		            </p>
+		            <hr class="w-full"/>
+		            <p class="text-white font-medium">Note : <span class="font-light "><h:outputText value="#{item.note}" /></span></p>
+		        </div>
+	      
+	       	</h:link>
+	     		<h:form id="formAdd">
+	       		<h:commandButton 
+	       			styleClass="bg-green-700 hover:bg-green-600 flex flex-col items-center justify-center ml-2  p-2.5 cursor-pointer rounded-3xl" 
+	       				value="affecter" action="#{questionBean.affecter(item,questionBean.quizID)}"  >
+	       				 
+	       			<!--  <f:ajax render="@all" execute="@this"  /> --> 
+	       			
+	       		</h:commandButton>
+	       		<i class="fa-solid fa-plus text-2xl text-white font-extrabold"></i>
+	       	</h:form>
+	       	
+       	</div>
+        
+        </c:forEach>
+        
+        
+
+  	  </div>
+  	  
+  	  <!-- included -->
+  	  <!-- liste des questions -->
+       <div class="container mx-auto">
+       
+        <h1 class="text-center text-gray-700 font-extrabold text-lg mb-4">Liste des  questions</h1>
+     
+        
+        
+         <c:forEach items="#{questionBean.included}" var="item" varStatus="status">
+       		<div class="flex mb-4 justify-center items-center  min-h-[60px] ">
+       	
+	       	<h:link outcome="reponses" styleClass="basis-2/3">
+	       	<f:param name="id" value="#{item.id}" />
+		        <!-- single question -->
+		        <div
+		            class="bg-green-500  mx-auto rounded-lg shadow-md p-2.5 flex flex-col items-center    hover:bg-green-600">
+		
+		            <p class="text-md font-medium text-white mb-3"><h:outputText value="#{item.enonce}" />
+		            </p>
+		            <hr class="w-full"/>
+		            <p class="text-white font-medium">Note : <span class="font-light "><h:outputText value="#{item.note}" /></span></p>
+		        </div>
+	       
+	       	</h:link>
+	     		<h:form id="ss">
+	       		<h:commandButton 
+	       			styleClass="bg-green-700 hover:bg-green-600 flex flex-col items-center justify-center ml-2  p-2.5 cursor-pointer rounded-3xl" 
+	       				value="supprimer" action="#{questionBean.test()}"  />
+	       				 
+	       		
+	       			
+	       		
+	       		<i class="fa-solid fa-plus text-2xl text-white font-extrabold"></i>
+	       	</h:form>
+	      
+	  
+       	</div>
+  
+        <!-- fin single question -->
+         </c:forEach>
+    
+      
+  	  </div>
+</body> 
+</html>

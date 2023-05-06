@@ -5,7 +5,9 @@ package queez.beans;
 import javax.faces.event.ActionEvent;
 import javax.faces.view.facelets.FaceletContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -18,6 +20,7 @@ import javax.faces.context.FacesContext;
 
 import queez.dao.Question;
 import queez.dao.Reponse;
+import queez.dao.User;
 import queez.metier.QuestionService;
 import queez.metier.ReponseService;
 
@@ -100,6 +103,16 @@ public class ReponseBean {
 	@Inject
 	@PostConstruct
 	public void init() {
+		HttpSession session=(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+		User u=(User)session.getAttribute("user");
+		if(u==null || !u.getUserType().equals("poseur")) {
+			 try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("login.jsf");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		this.listReponses=questionService.getReponses(id);
 		
 	}

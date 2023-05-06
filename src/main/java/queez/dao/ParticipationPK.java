@@ -21,6 +21,22 @@ public class ParticipationPK implements Serializable {
 	public int hashCode() {
 		return Objects.hash(apprenant_ID, quiz_ID);
 	}
+	
+	public int getApprenant_ID() {
+		return apprenant_ID;
+	}
+
+	public void setApprenant_ID(int apprenant_ID) {
+		this.apprenant_ID = apprenant_ID;
+	}
+
+	public int getQuiz_ID() {
+		return quiz_ID;
+	}
+
+	public void setQuiz_ID(int quiz_ID) {
+		this.quiz_ID = quiz_ID;
+	}
 
 	@Override
 	public boolean equals(Object obj) {

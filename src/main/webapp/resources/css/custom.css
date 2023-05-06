@@ -39,3 +39,61 @@
 .text-center{
 	text-align: center;
 }
+
+.tbReponse{
+	width:75%;
+	margin:10px auto;
+	
+	
+}
+.tbReponse tr{
+	display:flex;
+	flex-direction:column;
+	
+}
+.tbReponse tr td{
+	padding: 0.75rem 0.5rem;
+	font-size: 1.25rem;
+	font-weight: 600;
+	border: 1px solid #000;
+	margin: 0.25rem 0;
+	border-radius: 0.75rem;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
+  	cursor: pointer;
+  	width: 100%;
+}
+.tbReponse tr td input[type="radio"]{
+	display: none;
+}
+.tbReponse tr td label{
+	display:inline-block;
+	width: 100%;
+	cursor: pointer;
+} 
+.bg-blue-600{
+	background-color: #2563EB; 
+}
+.bg-blue-500{
+background-color: #3B82F6; 
+}
+.bg-blue-600:hover{
+	background-color: #1D4ED8; 
+}
+
+.py-1{
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem; 
+}
+.hover:bg-green-500:hover{
+	 background-color: #10B981; 
+}
+.rounded-md{
+	border-radius: 0.375rem; 
+}
+.text-gray-200{
+	color: #E5E7EB; 
+}
+.text-xl{
+	font-size: 1.25rem;
+line-height: 1.75rem; 
+}

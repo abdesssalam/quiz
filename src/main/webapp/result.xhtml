@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<h:outputStylesheet library="css" name="main.css" />
+<h:outputStylesheet library="css" name="all.css" />
+<h:outputStylesheet library="css" name="custom.css" />
+</h:head> 
+<h:body   styleClass=" flex flex-col justify-center items-center" style="width:100vw;height:100vh"> 
+	
+	<div style="height: 30%" class="container mx-auto bg-green-500 py-8 rounded-lg shadow-md text-white px-6 flex flex-col justify-center items-center cursor-pointer hover:bg-green-600">
+		<h1 class="font-bold text-3xl">Bravo !! <h:outputText styleClass="font-medium" value="#{resultBean.participation.apprenant.nom} #{resultBean.participation.apprenant.prenom}" /> </h1>
+		<p class="font-bold text-lg">Votre Note : <span>  <h:outputText styleClass="font-medium" value="#{resultBean.participation.note}" /> </span></p>
+	</div>
+	<h:link styleClass="block px-4 py-2 bg-green-400 mt-6  hover:bg-green-500 rounded" outcome="participations">
+                   lister votre participations
+                    </h:link>
+</h:body> 
+</html>

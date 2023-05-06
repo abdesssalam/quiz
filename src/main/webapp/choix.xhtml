@@ -10,6 +10,7 @@
 
 </h:head> 
 <body> 
+	
 	<div
         class="flex container mx-auto bg-gray-100 flex-col h-auto items-center justify-center md:flex-row md:justify-between md:rounded-md shadow-md">
         <div class="w-1/3 flex flex-col items-center gap-1 h-auto my-2">
@@ -19,11 +20,11 @@
         <div class="my-2 md:my-auto md:mx-2 flex  h-auto items-center">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex " aria-labelledby="dropdownMenuIconButton">
                    
-                    <h:link styleClass="block px-4 py-2  hover:bg-gray-200 rounded" outcome="quiz">
-                   les quizs
+                    <h:link styleClass="block px-4 py-2  hover:bg-gray-200 rounded" outcome="participations">
+                   les participations
                     </h:link>
-                    <h:link styleClass="block px-4 py-2 hover:bg-gray-200 rounded" outcome="questions">
-                    les questions
+                    <h:link styleClass="block px-4 py-2 hover:bg-gray-200 rounded" outcome="choix">
+                    participer
                     </h:link>
                     
                 </ul>
@@ -33,8 +34,34 @@
            
         </div>
     </div>
+    
     <!-- end header -->
-    <h:outputScript library="js" name="main.js" />
+     <!-- liste des quizes -->
+       <div class="container mx-auto">
+       
+        <h1 class="text-center text-gray-700 font-extrabold text-lg mb-4">Liste des quizes</h1>
+         <ui:repeat var="item" value="#{quizBean.listQuiz}">
+       	<h:link outcome="passer">
+       	<f:param name="quizID" value="#{item.id}" />
+        <!-- single question -->
+        <div
+            class="bg-green-500 mb-4 w-10/12 mx-auto min-h-[60px] rounded-lg shadow-md p-2.5 flex flex-col items-center    hover:bg-green-600">
+
+            <p class="text-md font-medium text-white mb-3"><h:outputText value="#{item.theme}" />
+            </p>
+            <hr class="w-full"/>
+            <p class="text-white font-medium">By : 
+            	<span class="font-light "> <h:outputText value="#{item.poseur.nom} #{item.poseur.prenom}" />  </span>
+            </p>
+        </div>
+       	</h:link>
+  
+        <!-- fin single question -->
+        </ui:repeat>
+  	  </div>
+    
+    <!-- end header -->
+   
     <h:outputScript library="js" name="flowbite.min.js" />
 </body> 
 </html>

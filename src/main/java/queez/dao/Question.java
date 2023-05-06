@@ -22,11 +22,7 @@ public class Question {
 	
 	int note;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(
-		name="quizquestion",
-		joinColumns = @JoinColumn(name="quiz",referencedColumnName = "id"),
-		inverseJoinColumns = @JoinColumn(name="question",referencedColumnName = "id"))
+	@ManyToMany(mappedBy = "questions")
 	
 	List<Quiz> quizes;
 	
